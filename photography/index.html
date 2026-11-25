@@ -46,6 +46,26 @@
 
 
         <img
+            src="images/photo41.jpg"
+            alt="Daylight Moon"
+            data-title="Daylight Moon"
+            data-location="Wroclaw, Poland"
+            data-date="November 2026"
+            data-buy="https://ko-fi.com/s/3d88e34e37"
+        >
+
+
+        <img
+            src="images/photo42.jpg"
+            alt="Hidden Raven"
+            data-title="Hidden Raven"
+            data-location="Wroclaw"
+            data-date="October, 2026"
+            data-buy="https://ko-fi.com/s/91b03dee42"
+        >
+
+
+        <img
             src="images/photo1.jpg"
             alt="Hummingbird"
             data-title="Hummingbird"
@@ -227,6 +247,9 @@
         <img src="images/photo33.JPG" alt="photo 33">
 
 
+
+
+
     </section>
 
 
@@ -234,6 +257,8 @@
     <!-- VISOR DE IMÁGENES -->
 
     <div id="lightbox" class="lightbox">
+
+
 
 
         <span class="close">&times;</span>
@@ -252,6 +277,14 @@
 
 
             <div class="lightbox-info">
+
+                    <a id="lightbox-buy"
+                      class="buy-button"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      hidden>
+                         Buy high-resolution photo
+                    </a>
 
                 <div id="lightbox-title"></div>
 
@@ -294,6 +327,7 @@
         const lightboxLocation = document.getElementById("lightbox-location");
 
         const lightboxDate = document.getElementById("lightbox-date");
+
 
         const close = document.querySelector(".close");
 
@@ -408,6 +442,7 @@ const prevButton = document.getElementById("prev-photo");
 const nextButton = document.getElementById("next-photo");
 
 function showPhoto(index) {
+
     currentIndex = (index + images.length) % images.length;
 
     const image = images[currentIndex];
@@ -418,6 +453,24 @@ function showPhoto(index) {
     lightboxTitle.textContent = image.dataset.title || "";
     lightboxLocation.textContent = image.dataset.location || "";
     lightboxDate.textContent = image.dataset.date || "";
+
+    /* PURCHASE LINK */
+
+    const buyButton = document.getElementById("lightbox-buy");
+
+    const buyUrl = image.dataset.buy || "";
+
+    if (buyUrl.startsWith("https://ko-fi.com/")) {
+
+        buyButton.href = buyUrl;
+        buyButton.hidden = false;
+
+    } else {
+
+        buyButton.removeAttribute("href");
+        buyButton.hidden = true;
+
+    }
 }
 
 images.forEach((image, index) => {

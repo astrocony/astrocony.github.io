@@ -464,6 +464,89 @@ body {
 
 
 
+
+/* PURCHASE BUTTON */
+
+.buy-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 22px;
+
+    color: #ffffff;
+    background: transparent;
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.buy-button:hover {
+    background: #ffffff;
+    color: #111111;
+    border-color: #ffffff;
+}
+
+.buy-button[hidden] {
+    display: none;
+}
+
+
+
+/* LIGHTBOX INFORMATION LAYOUT */
+
+.lightbox-info {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 20px;
+    align-items: center;
+}
+
+#lightbox-title {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#lightbox-location {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#lightbox-date {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+#lightbox-buy {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    justify-self: end;
+    align-self: end;
+    margin-top: 0;
+}
+
+/* MOBILE LAYOUT */
+
+@media (max-width: 600px) {
+
+    .lightbox-info {
+        grid-template-columns: 1fr;
+    }
+
+    #lightbox-buy {
+        grid-column: 1;
+        grid-row: 4;
+        margin-top: 12px;
+    }
+}
+
+
+
+
 /* =========================
    MÓVIL
 ========================= */
@@ -563,4 +646,17 @@ body {
     }
 
 
+}
+
+/* LIGHTBOX ALIGNMENT FIX */
+
+.lightbox-info {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px 15px;
+}
+
+#lightbox-buy {
+    justify-self: end;
+    align-self: end;
 }
